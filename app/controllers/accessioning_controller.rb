@@ -1,0 +1,2 @@
+class AccessioningController < ApplicationController
+end

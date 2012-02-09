@@ -1,0 +1,11 @@
+<title>Labtitan*</title>
+   <p class="error"> <% if flash[:notice] %>
+				  <div  style ="color:#ff0000; font-family:arial; font-size:12px; text-align:center;">
+					<%= flash[:notice] %></div><% end %>
+	</p>
+
+   processing staff is the other staffs (of different role) that are going to manage the processing section
+   
+   
+   <div style="padding-top:20px; padding-left:450px;">
+   <%= link_to "New patient entry", :action=>"patient_new" %></div>

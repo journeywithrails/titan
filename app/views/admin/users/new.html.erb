@@ -1,0 +1,167 @@
+ 
+ 
+ 
+ <% form_for :user,  :url => { :controller => :users, :action => :create_user}, :html => {:name=> 'appli_form', :onSubmit=>'return valid();'} do  %>
+ 
+ 
+ 
+ 
+    <div style="padding-left:15px; color:#335475; font-weight:bold;">
+              <table>
+                <tbody>
+                
+				
+				
+				<p class="error"> <%= flash[:notice] %> </p>
+                <tr>
+                  <td width="121">First Name</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                    <%= text_field "user","first_name",:class => "input",:id=> 'first_name', :style => 'width:250px; height:25px; border:1px solid #ffc13e;  font-size:16px;'  %>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :user, :first_name %> </font></td>
+                </tr>
+				
+				
+			
+                <tr>
+                  <td width="121">Last Name</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                    <%= text_field "user","last_name",:class => "input",:id=> 'last_name', :style => 'width:250px; height:25px; border:1px solid #ffc13e;  font-size:16px;'  %>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :user, :last_name %> </font></td>
+                </tr>
+				
+				
+				
+				
+				
+				
+                <tr>
+                  <td width="121">Email</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                    <%= text_field "user","email",:class => "input",:id=> 'email', :style => 'width:250px; height:25px; border:1px solid #ffc13e;  font-size:16px;'  %>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :user, :email %> </font></td>
+                </tr>
+				
+				
+				
+				
+				
+                <tr>
+                  <td width="121">Password</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                   <%= password_field "user","password",:class => "input",:id => 'password', :style => 'width:250px; height:25px; border:1px solid #ffc13e;  font-size:16px; ' %>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :user, :password %> </font></td>
+                </tr>
+				
+				
+				
+					
+               <tr>
+                  <td width="121">Re-type Password</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                   <%= password_field "user","password_confirmation",:class => "input",:id => 'password_confirmation', :style => 'width:250px; height:25px; border:1px solid #ffc13e;  font-size:16px; ' %>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :user, :password_confirmation %> </font></td>
+                </tr>
+ 
+ 
+      <tr>
+	             
+                  <td width="121">Select Department</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                   <select name="user[department_id]" id="department_id" size="1" style="width:178px;">
+          <option value="">Select Department</option>
+          <% for department in @departments%>
+          <option value=<%= department.id %>><%= department.name.capitalize  if !department.name.nil? %></option>
+          <% end %>
+        </select>
+                    
+                  </td>
+                </tr>
+				<tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :user, :department_id  %> </font></td>
+                </tr>
+                
+ 
+ 
+       <tr>
+                  <td width="121">Select Role</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                   <select name="user[role_id]" id="role_id" size="1" style="width:178px;">
+          <option value="">Select Role</option>
+          <% for role in @roles%>
+          <option value=<%= role.id %>><%= role.name.capitalize  if !role.name.nil? %></option>
+          <% end %>
+        </select>
+                    
+                  </td>
+                </tr>
+				<tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :user, :role_id  %> </font></td>
+                </tr>
+				
+				
+				
+            </tbody>
+ </table>
+ </div>
+ 
+  <div style="padding-left:25px;">
+              <table>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td  align="center">
+                  <td>
+                    <input value="Join" class="submit-button" type="submit"></td>
+                  <td><%= link_to image_tag("/images/cancel1.jpg", :title => "Cancel"), :action => "list" %> </td>
+                </tr>
+              </table>
+            </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ <% end %>

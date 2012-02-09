@@ -1,0 +1,177 @@
+ <%= stylesheet_link_tag 'aqua'  %>
+ <%= javascript_include_tag :defaults %>
+ <%= javascript_include_tag "patient" %>
+  <%= javascript_include_tag "zapatec", "calendar", "calendar-en", "patient" %>
+ <% form_for :patient,  :url => { :controller => :processing, :action => :create_patient}, :html => {:name=> 'appli_form', :onSubmit=>'return patient_new();'} do  %>
+ 
+ 
+   <div style="padding-left:90px; font-size:18px; "> Enter Patient Information </div>
+ 
+    <div style="padding-left:15px; color:#335475; font-weight:bold;">
+              <table>
+                <tbody>
+               
+				
+					
+				
+				 <tr>
+                  <td width="121">Social Security</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                    <%= text_field "patient","social_security",:class => "input",:id=> 'social_security', :style => 'width:250px; height:25px; border:1px solid #ffc13e;  font-size:16px;'  %>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :patient, :social_security %> </font></td>
+                </tr>
+				
+				
+				
+				<tr>
+                  <td width="121">First Name</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                    <%= text_field "patient","first_name",:class => "input",:id=> 'first_name', :style => 'width:250px; height:25px; border:1px solid #ffc13e;  font-size:16px;'  %>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :patient, :first_name %> </font></td>
+                </tr>
+				
+				
+			
+                <tr>
+                  <td width="121">Last Name</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                    <%= text_field "patient","last_name",:class => "input",:id=> 'last_name', :style => 'width:250px; height:25px; border:1px solid #ffc13e;  font-size:16px;'  %>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :patient, :last_name %> </font></td>
+                </tr>
+				
+				
+				 <tr>
+                  <td width="121">Middle Initial</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                    <%= text_field "patient","middle_initial",:class => "input",:id=> 'middle_initial', :style => 'width:250px; height:25px; border:1px solid #ffc13e;  font-size:16px;'  %>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :patient, :middle_initial %> </font></td>
+                </tr>
+				
+				
+				
+				
+				<tr>
+                  <td width="121">Gender</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                   <%= radio_button :patient, :sex, '0', :id=>'sex', :checked=>'checked' %>&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;<%= radio_button :patient, :sex, '1' ,:id=>'sex' %>&nbsp;&nbsp;&nbsp;Female
+                    
+                  </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :patient, :sex , "sex" %> </font></td>
+                </tr>
+				
+				
+				
+				
+				
+				
+				 <tr>
+                  <td width="121">Date Of Birth</td>
+                  <td width="10">:</td>
+                  <td width="100" align="left">
+                   
+					<%= text_field 'patient', 'date_of_birth', :id=> 'date_of_birth'   ,:style => 'width:250px; font-size:16px; background:url(/images/input_image1.jpg) repeat-x bottom; border:1px solid #ffc13e;'%>
+					
+					
+ <input name="image" type="image" id='button1' alt="Select Date" src="/images/cal.gif">
+<script type="text/javascript">
+var cal = new Zapatec.Calendar.setup({
+
+inputField:"date_of_birth",
+ifFormat:"%d-%b-%Y",
+button:"button1",
+showsTime:false
+
+});
+
+
+</script>
+				  </td>
+					
+				 </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :patient, :date_of_birth %> </font></td>
+                </tr>
+				
+				
+				
+				
+				 <tr>
+                  <td width="121">Suffix</td>
+                  <td width="10">:</td>
+                  <td width="312" align="left" >
+                    <%= text_field "patient","suffix",:class => "input",:id=> 'suffix', :style => 'width:250px; height:25px; border:1px solid #ffc13e;  font-size:16px;'  %>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  
+                  <td align="left"><font color="#FF0000" ><%= error_message_on :patient, :suffix %> </font></td>
+                </tr>
+				
+				
+				
+				 
+				
+				
+      </tbody>
+ </table>
+ </div>
+ 
+  <div style="padding-left:25px;">
+              <table>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td  align="center">
+                  <td>
+                    <input src="/images/submit1.jpg" value="Send" type="image"></td>
+					
+                  <td><%= link_to image_tag("/images/cancel1.jpg",:style=>"border:none", :title => "Cancel"), :action => "index" %> </td>
+                </tr>
+              </table>
+            </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ <% end %>

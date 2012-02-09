@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Labtitan Login*</title>
+<%= stylesheet_link_tag "admin_login" %>
+<%= javascript_include_tag 'signup.js' %>
+
+
+<style type="text/css">
+body
+{
+	background:url(/images/admin/bg_main.jpg) ;
+	margin:0px;
+	padding:0px;
+}
+</style>
+</head>
+
+<body><center>
+<div align="center" style="margin-top:10px; margin-bottom:20px; margin-left:20px; margin-right:20px;">
+ <div align="center" style="font-family:Arial, Helvetica, sans-serif;font-size:15px;color:#AB0300;text-align:center;">
+
+</div>
+</div >
+		
+	 <% if flash[:login_confirmation_frontend] %>
+                    <div  style ="color:#ff0000; font-family:arial; font-size:12px; text-align:center;">
+					<%= flash[:login_confirmation_frontend] %></div><% end %></td>	
+		
+		
+		
+		
+<% form_for :admin,  :url => { :controller => :users,:action => :login}, 
+                              :html => {:name=> 'appl_form', :onSubmit=>'return login();'} do  %>	
+							  	
+<div class="main_div">
+	<div class="top_main"><div class="span">Please Enter Your Login Details</div></div>
+	<div ><table width="286px" border="0" cellspacing="0" cellpadding="0" class="text" style=" margin-top:15px;">
+  <tr>
+    <td width="26%"  height="40px" align="left">Email</td>
+    <td width="3%" align="center">:</td>
+    <td width="71%" align="left"><input class="usernamepassword" name='username' value="Email ID" id="username" type="text" onKeyUp="if(event.keyCode==13) showOptions();" onFocus="if(this.value=='Email ID') this.value='';" onBlur="if(this.value=='') this.value='Email ID';" /></td>
+  </tr>
+  <tr>
+    <td height="40px"  align="left">Password </td>
+    <td align="center">:</td>
+    <td width="71%" align="left"><input class="usernamepassword" name='password' value="Password" id="password" type="password" onKeyUp="if(event.keyCode==13) showOptions();" onFocus="if(this.value=='Password') this.value='';" onBlur="if(this.value=='') this.value='Password';" /></td>
+  </tr>
+  <tr>
+<td colspan="3" align="center" height="40px">
+<input type="image" title="Submit Form" src="/images/admin/login.jpg" style="border:0" />
+</td>
+    </tr> 
+	<tr>
+    <td colspan="3" align="left" height="10px" ><!--<a href="#" class="forgot">Forgot Password</a>--></td>
+    </tr>
+</table>
+</div>
+	<div class="bottom"><img src="/images/admin/bottom.jpg" /></div>
+</div>
+<% end %>
+</center>
+</body>
+</html>

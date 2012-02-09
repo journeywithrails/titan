@@ -1,0 +1,2 @@
+module CourierHelper
+end

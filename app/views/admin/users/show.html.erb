@@ -1,0 +1,17 @@
+<div style="width:700px; overflow:hidden; height:auto; padding-left:28px; padding-top:10px; color:#FF0033; font-size:14px">
+<%= flash[:notice] %>
+</div>
+<div style="width:750px; overflow:hidden; height:auto; padding-left:10px; ">
+  <div style="width:500px; padding-left:20px; padding-top:20px; font-family:Arial, Helvetica, sans-serif; font-size:12px;">
+    <h4>User Details</h4>
+  </div>
+  <div style="width:700px; float:left; padding-left:30px; padding-top:20px;">
+    <div style="width:200px;float:left; padding-left:60px; font-family:Arial, Helvetica, sans-serif; font-size:12px;">First Name</div>
+    <div style="width:50px;float:left; ">:</div>
+    <div style="width:300px;float:left; font-family:Arial, Helvetica, sans-serif; font-size:12px; ">
+     <%= @user.first_name.humanize if !@user.first_name.nil?  %>
+    </div>
+  </div>
+  
+  
+  </div>

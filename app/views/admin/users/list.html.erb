@@ -1,0 +1,43 @@
+<div style="width:748px;margin-left:7px;">
+				<div style="width:100%; color:#444e02; margin:0px; font-size:20px;"><font style="text-align:left;" class="admin_font">List of Users</font><font style=" font-size:14px; padding-left:70px; align:right; text-align:right;  line-height:25px;"><%= link_to "Create User", :controller => 'users', :action=>"new" %></font></div>
+				
+				
+				
+				
+				
+				<div class="menu_heading">
+				<div style="width:30px; height:auto;" class="float_left heading">&nbsp;SNo</div>
+				<div style="width:140px;height:auto;" class="float_left heading" align="center">Name</div>
+				<div style="width:140px;height:auto;" class="float_left heading" align="center">Role</div>
+				<div style="width:140px;height:auto;" class="float_left heading" align="center">Department</div>
+				<div style="width:200px;height:auto;" class="float_left heading" align="center">Email ID</div>
+				
+				<div style="width:120px;height:auto;" class="float_left heading" align="center">Created ON</div>
+				<div style="width:105px;height:auto;" class="float_left heading" align="center">Action</div>
+				</div>
+				<div class="clearer"></div>
+				<%for @user in @users%>
+				<div style="height:auto; margin-top:4px;" onmouseover="javaScript:rowOverEffect(this)" onmouseout="javaScript:rowOutEffect(this,'#fffdf9')">
+				
+			<div style="width:80px; height:auto; clear:both;" class="float_left heading sub_item">&nbsp;&nbsp;<%=@user.id %></div>
+			<div style="width:160px;height:auto; padding-left:5px;" class="float_left heading sub_item"><%=@user.first_name %></div>
+			<div style="width:140px;height:auto;" class="float_left heading" align="center">Role</div>
+			<div style="width:140px;height:auto;" class="float_left heading" align="center">Department</div>
+			<div style="width:150px;height:auto;" class="float_left heading sub_item" ><%=@user.email %></div>
+			<div style="width:110px;height:auto;" class="float_left heading sub_item" ><%=@user.created_at.strftime("%Y-%m-%d") %></div>
+				
+				<div style="width:105px;height:auto;" class="float_left heading sub_item" align="center">
+				<table width="80%" border="0" cellspacing="0" cellpadding="0">
+			  <tr >
+				<td align="center"><%= link_to image_tag("/images/show.jpg"), :action => 'show', :id => @user%>
+				<!--<a href="#"><img src="images/show.jpg" width="20" height="20" border="0" /></a>--></td>
+				<td align="center"><%= link_to image_tag("/images/edit.jpg"), :action => 'edit'%>
+				<!--<a href="#"><img src="images/edit.jpg" alt="edit" width="20" height="20" border="0" /></a>--></td>
+				<td align="center"><%= link_to image_tag("/images/delete.jpg"), :action => 'delete'%>
+				<!--<a href="#"><img src="images/delete.jpg" alt="delete" width="19" height="19" border="0" /></a>--></td>
+			  </tr>
+			</table>
+            
+				</div>
+				</div>   <% end %>
+			</div>
